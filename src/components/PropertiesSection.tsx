@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { MapPin, Bed, Maximize, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import PropertyDetailModal from "./PropertyDetailModal";
 import property1 from "@/assets/property-1.jpg";
 import property2 from "@/assets/property-2.jpg";
 import property3 from "@/assets/property-3.jpg";
@@ -81,8 +82,27 @@ const properties = [
 
 const filters = ["All", "Apartment", "House", "Plot", "Commercial"];
 
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const PropertiesSection = () => {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [selectedProperty, setSelectedProperty] = useState<typeof properties[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handlePropertyClick = (property: typeof properties[0]) => {
+    setSelectedProperty(property);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProperty(null);
+  };
 
   return (
     <section id="properties" className="section-padding bg-background">
@@ -131,15 +151,16 @@ const PropertiesSection = () => {
         </motion.div>
 
         {/* Properties Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties.map((property, index) => (
             <motion.div
               key={property.id}
-              className="group bg-card rounded-2xl overflow-hidden shadow-card border border-border hover:shadow-elevated transition-all duration-500"
+              className="group bg-card rounded-2xl overflow-hidden shadow-card border border-border hover:shadow-elevated transition-all duration-500 cursor-pointer"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              onClick={() => handlePropertyClick(property)}
             >
               {/* Image */}
               <div className="relative h-52 overflow-hidden">
@@ -191,7 +212,7 @@ const PropertiesSection = () => {
                     {property.price}
                   </span>
                   <Button variant="ghost" size="sm" className="text-secondary hover:bg-secondary/10">
-                    Details
+                    View Details
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Button>
                 </div>
@@ -208,12 +229,24 @@ const PropertiesSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <Button variant="outline" size="xl" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
-            View All Properties
+          <Button 
+            variant="outline" 
+            size="xl" 
+            className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+            onClick={() => scrollToSection("contact")}
+          >
+            Contact Us For More Properties
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
         </motion.div>
       </div>
+
+      {/* Property Detail Modal */}
+      <PropertyDetailModal 
+        property={selectedProperty} 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+      />
     </section>
   );
 };
