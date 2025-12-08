@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
-import { Search, MapPin, Home, IndianRupee } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import heroImage from "@/assets/hero-jammu.jpg";
+
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 const Hero = () => {
   return (
@@ -55,91 +60,17 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            className="flex flex-wrap gap-4 mb-12"
+            className="flex flex-wrap gap-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <Button variant="gold" size="xl">
+            <Button variant="gold" size="xl" onClick={() => scrollToSection("properties")}>
               View Featured Properties
             </Button>
-            <Button variant="hero" size="xl">
+            <Button variant="hero" size="xl" onClick={() => scrollToSection("contact")}>
               Talk to a Real Estate Expert
             </Button>
-          </motion.div>
-
-          {/* Property Search Bar */}
-          <motion.div
-            className="bg-card/95 backdrop-blur-xl rounded-2xl p-4 md:p-6 shadow-elevated"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  Location
-                </label>
-                <Select>
-                  <SelectTrigger className="bg-muted border-0">
-                    <SelectValue placeholder="Select Location" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="jammu">Jammu</SelectItem>
-                    <SelectItem value="srinagar">Srinagar</SelectItem>
-                    <SelectItem value="trikuta">Trikuta Nagar</SelectItem>
-                    <SelectItem value="gandhi">Gandhi Nagar</SelectItem>
-                    <SelectItem value="nowgam">Nowgam</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-                  <Home className="w-4 h-4" />
-                  Property Type
-                </label>
-                <Select>
-                  <SelectTrigger className="bg-muted border-0">
-                    <SelectValue placeholder="Select Type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="apartment">Apartment</SelectItem>
-                    <SelectItem value="house">Independent House</SelectItem>
-                    <SelectItem value="plot">Plot</SelectItem>
-                    <SelectItem value="commercial">Commercial</SelectItem>
-                    <SelectItem value="villa">Villa</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground flex items-center gap-2">
-                  <IndianRupee className="w-4 h-4" />
-                  Budget Range
-                </label>
-                <Select>
-                  <SelectTrigger className="bg-muted border-0">
-                    <SelectValue placeholder="Select Budget" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="25-50">₹25L - ₹50L</SelectItem>
-                    <SelectItem value="50-75">₹50L - ₹75L</SelectItem>
-                    <SelectItem value="75-1cr">₹75L - ₹1Cr</SelectItem>
-                    <SelectItem value="1-2cr">₹1Cr - ₹2Cr</SelectItem>
-                    <SelectItem value="2cr+">₹2Cr+</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="flex items-end">
-                <Button variant="gold" size="lg" className="w-full gap-2">
-                  <Search className="w-4 h-4" />
-                  Search
-                </Button>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
