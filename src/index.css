@@ -4,14 +4,14 @@
 
 @layer base {
   :root {
-    /* Kapahi Properties Premium Color System - Vibrant */
-    --background: 220 20% 98%;
+    /* Kapahi Properties Premium Color System - Warm & Inspiring */
+    --background: 38 45% 96%;
     --foreground: 220 60% 8%;
 
-    --card: 0 0% 100%;
+    --card: 40 40% 99%;
     --card-foreground: 220 60% 8%;
 
-    --popover: 0 0% 100%;
+    --popover: 40 40% 99%;
     --popover-foreground: 220 60% 8%;
 
     /* Deep Navy - Primary Brand Color */
@@ -22,8 +22,8 @@
     --secondary: 42 85% 50%;
     --secondary-foreground: 220 65% 8%;
 
-    /* Muted Backgrounds */
-    --muted: 220 25% 94%;
+    /* Muted Backgrounds - Warm Cream */
+    --muted: 38 35% 92%;
     --muted-foreground: 220 20% 45%;
 
     /* Gold Accent */
@@ -34,8 +34,8 @@
     --destructive: 20 100% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 90%;
-    --input: 220 20% 90%;
+    --border: 38 25% 88%;
+    --input: 38 25% 88%;
     --ring: 42 85% 50%;
 
     --radius: 1rem;
@@ -46,8 +46,8 @@
     --gold: 42 85% 50%;
     --gold-light: 42 75% 62%;
     --gold-dark: 42 90% 40%;
-    --ivory: 40 40% 98%;
-    --ivory-dark: 40 25% 94%;
+    --ivory: 38 45% 96%;
+    --ivory-dark: 38 35% 92%;
     --warm-orange: 20 100% 55%;
     
     /* Gradients - More Dynamic */
