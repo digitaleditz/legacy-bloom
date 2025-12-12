@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, Bed, Maximize, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -22,6 +22,7 @@ const properties = [
     size: "1,850 sq.ft",
     image: property1,
     featured: true,
+    category: "Apartment",
   },
   {
     id: 2,
@@ -33,6 +34,7 @@ const properties = [
     size: "3,200 sq.ft",
     image: property2,
     featured: true,
+    category: "House",
   },
   {
     id: 3,
@@ -44,6 +46,7 @@ const properties = [
     size: "2,500 sq.ft",
     image: property3,
     featured: false,
+    category: "Commercial",
   },
   {
     id: 4,
@@ -55,6 +58,7 @@ const properties = [
     size: "10 Marla",
     image: property4,
     featured: true,
+    category: "Plot",
   },
   {
     id: 5,
@@ -66,6 +70,7 @@ const properties = [
     size: "1,200 sq.ft",
     image: property5,
     featured: false,
+    category: "Apartment",
   },
   {
     id: 6,
@@ -77,6 +82,7 @@ const properties = [
     size: "4,500 sq.ft",
     image: property6,
     featured: true,
+    category: "House",
   },
 ];
 
@@ -136,32 +142,38 @@ const PropertiesSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           {filters.map((filter) => (
-            <button
+            <motion.button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`relative px-7 py-3 rounded-full text-sm font-semibold transition-all duration-300 overflow-hidden ${
                 activeFilter === filter
-                  ? "bg-primary text-primary-foreground shadow-card"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  ? "bg-gradient-to-r from-primary to-navy-light text-primary-foreground shadow-elevated"
+                  : "bg-card text-muted-foreground hover:text-foreground border border-border hover:border-secondary/50 hover:shadow-card"
               }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
               {filter}
-            </button>
+            </motion.button>
           ))}
         </motion.div>
 
         {/* Properties Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {properties.map((property, index) => (
-            <motion.div
-              key={property.id}
-              className="group bg-card rounded-2xl overflow-hidden shadow-card border border-border hover:shadow-elevated transition-all duration-500 cursor-pointer"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              onClick={() => handlePropertyClick(property)}
-            >
+        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
+            {properties
+              .filter((property) => activeFilter === "All" || property.category === activeFilter)
+              .map((property, index) => (
+              <motion.div
+                key={property.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group bg-card rounded-2xl overflow-hidden shadow-card border border-border hover:shadow-elevated hover:border-secondary/30 transition-all duration-500 cursor-pointer"
+                onClick={() => handlePropertyClick(property)}
+              >
               {/* Image */}
               <div className="relative h-52 overflow-hidden">
                 <img
@@ -219,7 +231,8 @@ const PropertiesSection = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+          </AnimatePresence>
+        </motion.div>
 
         {/* View All CTA */}
         <motion.div
