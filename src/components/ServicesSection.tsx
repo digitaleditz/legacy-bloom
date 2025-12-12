@@ -86,6 +86,7 @@ const ServicesSection = () => {
               <Button
                 variant="ghost"
                 className="text-secondary hover:text-secondary hover:bg-secondary/10 p-0 group/btn"
+                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
                 Learn More
                 <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
@@ -105,7 +106,7 @@ const ServicesSection = () => {
           <p className="text-lg text-muted-foreground mb-6">
             Not sure which service is right for you? Let's discuss your needs.
           </p>
-          <Button variant="gold" size="xl">
+          <Button variant="gold" size="xl" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
             Schedule a Free Consultation
           </Button>
         </motion.div>

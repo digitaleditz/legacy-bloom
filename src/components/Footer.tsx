@@ -64,12 +64,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <button
+                    onClick={() => document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" })}
                     className="text-primary-foreground/70 hover:text-secondary transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -86,7 +86,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service}>
-                  <span className="text-primary-foreground/70">{service}</span>
+                  <button 
+                    onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
+                    className="text-primary-foreground/70 hover:text-secondary transition-colors"
+                  >
+                    {service}
+                  </button>
                 </li>
               ))}
             </ul>

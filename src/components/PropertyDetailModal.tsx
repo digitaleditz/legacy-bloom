@@ -64,7 +64,7 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0" aria-describedby="property-description">
         <div className="relative">
           {/* Property Image */}
           <div className="relative h-64 md:h-80">
@@ -117,7 +117,7 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
             </div>
 
             {/* Description */}
-            <div className="mb-6">
+            <div className="mb-6" id="property-description">
               <h3 className="font-display text-lg font-bold text-foreground mb-3">Property Description</h3>
               <p className="text-muted-foreground leading-relaxed">
                 This stunning {property.bhk} property in {property.location} offers an exceptional living experience. 
