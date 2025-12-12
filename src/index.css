@@ -4,63 +4,64 @@
 
 @layer base {
   :root {
-    /* Kapahi Properties Premium Color System */
-    --background: 40 33% 98%;
-    --foreground: 220 50% 8%;
+    /* Kapahi Properties Premium Color System - Vibrant */
+    --background: 220 20% 98%;
+    --foreground: 220 60% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 50% 8%;
+    --card-foreground: 220 60% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 50% 8%;
+    --popover-foreground: 220 60% 8%;
 
     /* Deep Navy - Primary Brand Color */
-    --primary: 220 60% 10%;
-    --primary-foreground: 40 33% 98%;
+    --primary: 220 65% 12%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Rich Gold - Accent */
-    --secondary: 43 70% 47%;
-    --secondary-foreground: 220 60% 10%;
+    /* Rich Gold - Accent - More Vibrant */
+    --secondary: 42 85% 50%;
+    --secondary-foreground: 220 65% 8%;
 
     /* Muted Backgrounds */
-    --muted: 220 20% 95%;
-    --muted-foreground: 220 15% 40%;
+    --muted: 220 25% 94%;
+    --muted-foreground: 220 20% 45%;
 
     /* Gold Accent */
-    --accent: 43 70% 47%;
-    --accent-foreground: 220 60% 10%;
+    --accent: 42 85% 50%;
+    --accent-foreground: 220 65% 8%;
 
-    /* CTA Orange */
-    --destructive: 25 95% 53%;
+    /* CTA Orange - More Vivid */
+    --destructive: 20 100% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 88%;
-    --input: 220 20% 88%;
-    --ring: 43 70% 47%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 42 85% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Custom Brand Variables */
-    --navy: 220 60% 10%;
-    --navy-light: 220 40% 20%;
-    --gold: 43 70% 47%;
-    --gold-light: 43 60% 60%;
-    --gold-dark: 43 80% 35%;
-    --ivory: 40 33% 98%;
-    --ivory-dark: 40 20% 92%;
-    --warm-orange: 25 95% 53%;
+    /* Custom Brand Variables - More Vibrant */
+    --navy: 220 65% 12%;
+    --navy-light: 220 50% 22%;
+    --gold: 42 85% 50%;
+    --gold-light: 42 75% 62%;
+    --gold-dark: 42 90% 40%;
+    --ivory: 40 40% 98%;
+    --ivory-dark: 40 25% 94%;
+    --warm-orange: 20 100% 55%;
     
-    /* Gradients */
-    --gradient-navy: linear-gradient(135deg, hsl(220 60% 10%) 0%, hsl(220 40% 18%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(43 70% 47%) 0%, hsl(43 80% 55%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsla(220, 60%, 10%, 0.7) 0%, hsla(220, 60%, 10%, 0.4) 100%);
-    --gradient-glass: linear-gradient(135deg, hsla(0, 0%, 100%, 0.1) 0%, hsla(0, 0%, 100%, 0.05) 100%);
+    /* Gradients - More Dynamic */
+    --gradient-navy: linear-gradient(135deg, hsl(220 65% 12%) 0%, hsl(220 50% 22%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(42 85% 50%) 0%, hsl(42 75% 62%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsla(220, 65%, 12%, 0.85) 0%, hsla(220, 65%, 12%, 0.5) 100%);
+    --gradient-glass: linear-gradient(135deg, hsla(0, 0%, 100%, 0.15) 0%, hsla(0, 0%, 100%, 0.05) 100%);
+    --gradient-vibrant: linear-gradient(135deg, hsl(220 65% 12%) 0%, hsl(42 85% 50%) 100%);
     
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsla(220, 60%, 10%, 0.08);
-    --shadow-card: 0 8px 32px hsla(220, 60%, 10%, 0.12);
-    --shadow-elevated: 0 20px 60px hsla(220, 60%, 10%, 0.15);
-    --shadow-gold: 0 8px 24px hsla(43, 70%, 47%, 0.3);
+    /* Shadows - Deeper */
+    --shadow-soft: 0 4px 24px hsla(220, 65%, 12%, 0.1);
+    --shadow-card: 0 12px 40px hsla(220, 65%, 12%, 0.14);
+    --shadow-elevated: 0 24px 64px hsla(220, 65%, 12%, 0.18);
+    --shadow-gold: 0 12px 32px hsla(42, 85%, 50%, 0.35);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
