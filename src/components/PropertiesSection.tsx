@@ -16,7 +16,7 @@ const properties = [
     id: 1,
     title: "3BHK Luxury Apartment",
     location: "Trikuta Nagar, Jammu",
-    price: "₹85 Lakhs",
+    price: "Contact for Pricing",
     type: "For Sale",
     bhk: "3 BHK",
     size: "1,850 sq.ft",
@@ -28,7 +28,7 @@ const properties = [
     id: 2,
     title: "Premium Villa with Garden",
     location: "Gandhi Nagar, Jammu",
-    price: "₹2.5 Cr",
+    price: "Contact for Pricing",
     type: "For Sale",
     bhk: "4 BHK",
     size: "3,200 sq.ft",
@@ -40,7 +40,7 @@ const properties = [
     id: 3,
     title: "Commercial Office Space",
     location: "Residency Road, Jammu",
-    price: "₹45,000/mo",
+    price: "Contact for Pricing",
     type: "For Rent",
     bhk: "Office",
     size: "2,500 sq.ft",
@@ -52,7 +52,7 @@ const properties = [
     id: 4,
     title: "Residential Plot",
     location: "Nowgam, Kashmir",
-    price: "₹1.2 Cr",
+    price: "Contact for Pricing",
     type: "For Sale",
     bhk: "Plot",
     size: "10 Marla",
@@ -64,7 +64,7 @@ const properties = [
     id: 5,
     title: "2BHK Mountain View Flat",
     location: "Srinagar, Kashmir",
-    price: "₹55 Lakhs",
+    price: "Contact for Pricing",
     type: "For Sale",
     bhk: "2 BHK",
     size: "1,200 sq.ft",
@@ -76,7 +76,7 @@ const properties = [
     id: 6,
     title: "Heritage Wooden House",
     location: "Pahalgam, Kashmir",
-    price: "₹3.8 Cr",
+    price: "Contact for Pricing",
     type: "For Sale",
     bhk: "5 BHK",
     size: "4,500 sq.ft",
@@ -220,7 +220,7 @@ const PropertiesSection = () => {
                 </div>
 
                 <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <span className="flex items-center font-display text-xl font-bold text-secondary">
+                  <span className="flex items-center font-display text-xl text-secondary" style={{letterSpacing:"-.05rem"}}>
                     {property.price}
                   </span>
                   <Button variant="ghost" size="sm" className="text-secondary hover:bg-secondary/10">

@@ -3,7 +3,10 @@ import { MapPin, Globe2, Sparkles } from "lucide-react";
 
 const LocateUsSection = () => {
   return (
-    <section id="locate" className="section-padding bg-background overflow-hidden">
+    <section
+      id="locate"
+      className="section-padding bg-background overflow-hidden"
+    >
       <div className="container-custom">
         {/* Section Header */}
         <motion.div
@@ -17,11 +20,11 @@ const LocateUsSection = () => {
             Find Us
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Locate{" "}
-            <span className="text-secondary">Kapahi Properties</span>
+            Locate <span className="text-secondary">Kapahi Properties</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Wherever you are in the world, your next home in Jammu & Kashmir is just a call away.
+            Wherever you are in the world, your next home in Jammu & Kashmir is
+            just a call away.
           </p>
         </motion.div>
 
@@ -35,8 +38,9 @@ const LocateUsSection = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-elevated border border-border">
+              
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3351.8947889!2d74.8477!3d32.7333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e853c9ea4e3c1%3A0x3d7b12e9e8e3b4e3!2sTrikuta%20Nagar%2C%20Jammu!5e0!3m2!1sen!2sin!4v1"
+               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3357.4125529329867!2d74.87664727577946!3d32.70166348783285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391e8356fd9aaaab%3A0xbad2d065fa7f8b8!2sKAPAHI%20PROPERTIES!5e0!3m2!1sen!2sin!4v1765579385617!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -63,7 +67,7 @@ const LocateUsSection = () => {
             <div className="relative aspect-square max-w-md mx-auto">
               {/* Outer glow ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-secondary/20 via-transparent to-secondary/10 animate-pulse" />
-              
+
               {/* Globe container */}
               <div className="absolute inset-8 rounded-full bg-gradient-to-br from-primary via-navy-light to-primary shadow-elevated overflow-hidden">
                 {/* Globe surface pattern */}
@@ -88,7 +92,11 @@ const LocateUsSection = () => {
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-secondary/10 to-transparent"
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
                 />
 
                 {/* India highlight */}
@@ -102,7 +110,10 @@ const LocateUsSection = () => {
                 </div>
 
                 {/* Connection lines */}
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
+                <svg
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 100 100"
+                >
                   <motion.path
                     d="M 20,30 Q 40,20 60,35"
                     stroke="hsl(43, 70%, 47%)"
@@ -169,8 +180,8 @@ const LocateUsSection = () => {
                 Clients from Around the World
               </h3>
               <p className="text-muted-foreground max-w-sm mx-auto">
-                NRIs and global investors trust Kapahi Properties for their real estate 
-                needs in Jammu & Kashmir.
+                NRIs and global investors trust Kapahi Properties for their real
+                estate needs in Jammu & Kashmir.
               </p>
             </div>
           </motion.div>

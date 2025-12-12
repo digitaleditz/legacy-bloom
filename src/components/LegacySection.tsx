@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Quote, Target, Eye } from "lucide-react";
-import founderPortrait from "@/assets/founder-portrait.jpg";
-import leaderPortrait from "@/assets/leader-portrait.jpg";
+import founderPortrait from "@/assets/founder-portrait.jpeg";
+import leaderPortrait from "@/assets/leader-portrait.jpeg";
 import vishalPortrait from "@/assets/vishal-portrait.jpg";
 
 const legacyTimeline = [
@@ -114,7 +114,7 @@ const LegacySection = () => {
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                       />
                     </div>
                     <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-secondary/10 rounded-2xl -z-10" />
