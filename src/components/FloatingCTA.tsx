@@ -17,12 +17,14 @@ const FloatingCTA = () => {
               Call Now
             </Button>
           </a>
-          <a href="#contact" className="flex-1">
-            <Button variant="hero" className="w-full gap-2">
-              <MessageCircle className="w-4 h-4" />
-              Enquire
-            </Button>
-          </a>
+          <Button 
+            variant="hero" 
+            className="flex-1 gap-2"
+            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+          >
+            <MessageCircle className="w-4 h-4" />
+            Enquire
+          </Button>
         </div>
       </div>
 
@@ -68,15 +70,16 @@ const FloatingCTA = () => {
                     </p>
                   </div>
                 </a>
-                <a
-                  href="#contact"
-                  onClick={() => setIsExpanded(false)}
-                  className="block w-full"
+                <Button 
+                  variant="default" 
+                  className="w-full"
+                  onClick={() => {
+                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    setIsExpanded(false);
+                  }}
                 >
-                  <Button variant="default" className="w-full">
-                    Send Enquiry
-                  </Button>
-                </a>
+                  Send Enquiry
+                </Button>
               </div>
             </motion.div>
           )}

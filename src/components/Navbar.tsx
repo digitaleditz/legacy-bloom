@@ -12,6 +12,13 @@ const navLinks = [
   { name: "Contact", href: "#contact" },
 ];
 
+const scrollToSection = (href: string) => {
+  const element = document.querySelector(href);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,20 +80,20 @@ const Navbar = () => {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                <a
+                <button
                   key={link.name}
-                  href={link.href}
+                  onClick={() => scrollToSection(link.href)}
                   className="text-sm font-medium text-foreground hover:text-secondary transition-colors relative group"
                 >
                   {link.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-secondary transition-all duration-300 group-hover:w-full" />
-                </a>
+                </button>
               ))}
             </div>
 
             {/* CTA Button */}
             <div className="hidden lg:flex items-center gap-4">
-              <Button variant="gold" size="lg">
+              <Button variant="gold" size="lg" onClick={() => scrollToSection("#contact")}>
                 Get Expert Advice
               </Button>
             </div>
@@ -112,16 +119,21 @@ const Navbar = () => {
             >
               <div className="container-custom py-4 space-y-4">
                 {navLinks.map((link) => (
-                  <a
+                  <button
                     key={link.name}
-                    href={link.href}
-                    className="block py-2 text-foreground hover:text-secondary transition-colors"
-                    onClick={() => setIsOpen(false)}
+                    className="block py-2 text-foreground hover:text-secondary transition-colors w-full text-left"
+                    onClick={() => {
+                      scrollToSection(link.href);
+                      setIsOpen(false);
+                    }}
                   >
                     {link.name}
-                  </a>
+                  </button>
                 ))}
-                <Button variant="gold" className="w-full">
+                <Button variant="gold" className="w-full" onClick={() => {
+                  scrollToSection("#contact");
+                  setIsOpen(false);
+                }}>
                   Get Expert Advice
                 </Button>
                 <div className="pt-4 border-t border-border space-y-2">
