@@ -61,21 +61,19 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Custom brand colors
-        navy: {
-          DEFAULT: "hsl(var(--navy))",
-          light: "hsl(var(--navy-light))",
+        // Custom brand colors - Red & Black
+        red: {
+          DEFAULT: "hsl(var(--red))",
+          light: "hsl(var(--red-light))",
+          dark: "hsl(var(--red-dark))",
         },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          light: "hsl(var(--gold-light))",
-          dark: "hsl(var(--gold-dark))",
+        black: {
+          DEFAULT: "hsl(var(--black))",
+          light: "hsl(var(--black-light))",
         },
-        ivory: {
-          DEFAULT: "hsl(var(--ivory))",
-          dark: "hsl(var(--ivory-dark))",
-        },
-        cta: "hsl(var(--warm-orange))",
+        charcoal: "hsl(var(--charcoal))",
+        cream: "hsl(var(--cream))",
+        cta: "hsl(var(--warm-red))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -86,7 +84,7 @@ export default {
         'soft': 'var(--shadow-soft)',
         'card': 'var(--shadow-card)',
         'elevated': 'var(--shadow-elevated)',
-        'gold': 'var(--shadow-gold)',
+        'red': 'var(--shadow-red)',
       },
       keyframes: {
         "accordion-down": {
@@ -113,13 +111,9 @@ export default {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateX(0)" },
         },
-        "globe-rotate": {
-          "0%": { transform: "rotateY(0deg)" },
-          "100%": { transform: "rotateY(360deg)" },
-        },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsla(43, 70%, 47%, 0.4)" },
-          "50%": { boxShadow: "0 0 40px hsla(43, 70%, 47%, 0.8)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsla(0, 84%, 50%, 0.4)" },
+          "50%": { boxShadow: "0 0 40px hsla(0, 84%, 50%, 0.8)" },
         },
       },
       animation: {
@@ -129,7 +123,6 @@ export default {
         "fade-in": "fade-in 0.5s ease-out forwards",
         "scale-in": "scale-in 0.4s ease-out forwards",
         "slide-in-right": "slide-in-right 0.3s ease-out",
-        "globe-rotate": "globe-rotate 20s linear infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
       },
     },

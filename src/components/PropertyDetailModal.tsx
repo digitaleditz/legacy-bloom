@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Bed, Maximize, Phone, Send, CheckCircle, Home, Car, Trees, Shield, Wifi, Droplets } from "lucide-react";
+import { MapPin, Bed, Maximize, Phone, Send, CheckCircle, Home, Car, Trees, Shield, Wifi, Droplets, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Property {
   id: number;
@@ -31,6 +32,7 @@ interface PropertyDetailModalProps {
 const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalProps) => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -40,17 +42,43 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
 
   if (!property) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    toast({
-      title: "Enquiry Sent Successfully!",
-      description: `We'll contact you about ${property.title} shortly.`,
-    });
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", phone: "", email: "", message: "" });
-    }, 3000);
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase.functions.invoke('send-enquiry', {
+        body: {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || undefined,
+          message: formData.message || `I'm interested in ${property.title}. Please contact me.`,
+          propertyTitle: property.title,
+          source: "property_enquiry"
+        }
+      });
+
+      if (error) throw error;
+
+      setIsSubmitted(true);
+      toast({
+        title: "Enquiry Sent Successfully!",
+        description: `We'll contact you about ${property.title} shortly.`,
+      });
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      }, 3000);
+    } catch (error) {
+      console.error("Error sending enquiry:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send enquiry. Please try again or call us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const amenities = [
@@ -73,7 +101,7 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
               alt={property.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent" />
             <div className="absolute top-4 left-4 flex gap-2">
               <Badge className={property.type === "For Sale" ? "bg-secondary text-secondary-foreground" : "bg-cta text-primary-foreground"}>
                 {property.type}
@@ -91,13 +119,13 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
                 {property.title}
               </DialogTitle>
               <p className="flex items-center gap-2 text-muted-foreground mt-2">
-                <MapPin className="w-4 h-4" />
+                <MapPin className="w-4 h-4 text-secondary" />
                 {property.location}
               </p>
             </DialogHeader>
 
             {/* Price & Key Stats */}
-            <div className="bg-muted/50 rounded-xl p-4 mb-6">
+            <div className="bg-muted/50 rounded-xl p-4 mb-6 border border-border">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <p className="text-sm text-muted-foreground">Price</p>
@@ -131,7 +159,7 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
               <h3 className="font-display text-lg font-bold text-foreground mb-3">Key Features & Amenities</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {amenities.map((amenity, index) => (
-                  <div key={index} className="flex items-center gap-2 p-3 bg-muted/30 rounded-lg">
+                  <div key={index} className="flex items-center gap-2 p-3 bg-muted/30 rounded-lg border border-border hover:border-secondary/30 transition-colors">
                     <amenity.icon className="w-4 h-4 text-secondary" />
                     <span className="text-sm text-foreground">{amenity.label}</span>
                   </div>
@@ -167,9 +195,9 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
                   Call +91-94191-89511
                 </Button>
                 <Button 
-                  variant="outline" 
+                  variant="redOutline" 
                   size="lg" 
-                  className="flex-1 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+                  className="flex-1"
                   onClick={() => window.location.href = "tel:+919469460000"}
                 >
                   <Phone className="w-4 h-4 mr-2" />
@@ -203,6 +231,7 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
                       required 
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="border-border focus:border-secondary"
                     />
                     <Input 
                       type="tel" 
@@ -210,6 +239,7 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
                       required 
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="border-border focus:border-secondary"
                     />
                   </div>
                   <Input 
@@ -217,16 +247,27 @@ const PropertyDetailModal = ({ property, isOpen, onClose }: PropertyDetailModalP
                     placeholder="Email Address" 
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="border-border focus:border-secondary"
                   />
                   <Textarea 
                     placeholder={`I'm interested in ${property.title}. Please contact me.`}
                     rows={3}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="border-border focus:border-secondary"
                   />
-                  <Button type="submit" variant="gold" size="lg" className="w-full">
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Enquiry
+                  <Button type="submit" variant="gold" size="lg" className="w-full" disabled={isLoading}>
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Enquiry
+                      </>
+                    )}
                   </Button>
                 </form>
               )}
