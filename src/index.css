@@ -4,64 +4,64 @@
 
 @layer base {
   :root {
-    /* Kapahi Properties Premium Color System - Warm & Inspiring */
-    --background: 38 45% 96%;
-    --foreground: 220 60% 8%;
+    /* Kapahi Properties - Bold Red & Black Theme */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 5%;
 
-    --card: 40 40% 99%;
-    --card-foreground: 220 60% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
 
-    --popover: 40 40% 99%;
-    --popover-foreground: 220 60% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
 
-    /* Deep Navy - Primary Brand Color */
-    --primary: 220 65% 12%;
+    /* Deep Black - Primary Brand Color */
+    --primary: 0 0% 8%;
     --primary-foreground: 0 0% 100%;
 
-    /* Rich Gold - Accent - More Vibrant */
-    --secondary: 42 85% 50%;
-    --secondary-foreground: 220 65% 8%;
+    /* Bold Red - Accent Color */
+    --secondary: 0 84% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Muted Backgrounds - Warm Cream */
-    --muted: 38 35% 92%;
-    --muted-foreground: 220 20% 45%;
+    /* Muted Backgrounds */
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
 
-    /* Gold Accent */
-    --accent: 42 85% 50%;
-    --accent-foreground: 220 65% 8%;
+    /* Red Accent */
+    --accent: 0 84% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    /* CTA Orange - More Vivid */
-    --destructive: 20 100% 55%;
+    /* CTA Red */
+    --destructive: 0 84% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 38 25% 88%;
-    --input: 38 25% 88%;
-    --ring: 42 85% 50%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 84% 50%;
 
-    --radius: 1rem;
+    --radius: 0.75rem;
 
-    /* Custom Brand Variables - More Vibrant */
-    --navy: 220 65% 12%;
-    --navy-light: 220 50% 22%;
-    --gold: 42 85% 50%;
-    --gold-light: 42 75% 62%;
-    --gold-dark: 42 90% 40%;
-    --ivory: 38 45% 96%;
-    --ivory-dark: 38 35% 92%;
-    --warm-orange: 20 100% 55%;
+    /* Custom Brand Variables */
+    --red: 0 84% 50%;
+    --red-light: 0 80% 60%;
+    --red-dark: 0 90% 40%;
+    --black: 0 0% 8%;
+    --black-light: 0 0% 18%;
+    --charcoal: 0 0% 15%;
+    --cream: 30 20% 96%;
+    --warm-red: 5 85% 52%;
     
-    /* Gradients - More Dynamic */
-    --gradient-navy: linear-gradient(135deg, hsl(220 65% 12%) 0%, hsl(220 50% 22%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(42 85% 50%) 0%, hsl(42 75% 62%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsla(220, 65%, 12%, 0.85) 0%, hsla(220, 65%, 12%, 0.5) 100%);
+    /* Gradients */
+    --gradient-red: linear-gradient(135deg, hsl(0 84% 50%) 0%, hsl(0 90% 40%) 100%);
+    --gradient-black: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 18%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsla(0, 0%, 8%, 0.9) 0%, hsla(0, 0%, 8%, 0.6) 100%);
     --gradient-glass: linear-gradient(135deg, hsla(0, 0%, 100%, 0.15) 0%, hsla(0, 0%, 100%, 0.05) 100%);
-    --gradient-vibrant: linear-gradient(135deg, hsl(220 65% 12%) 0%, hsl(42 85% 50%) 100%);
+    --gradient-vibrant: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 84% 50%) 100%);
     
-    /* Shadows - Deeper */
-    --shadow-soft: 0 4px 24px hsla(220, 65%, 12%, 0.1);
-    --shadow-card: 0 12px 40px hsla(220, 65%, 12%, 0.14);
-    --shadow-elevated: 0 24px 64px hsla(220, 65%, 12%, 0.18);
-    --shadow-gold: 0 12px 32px hsla(42, 85%, 50%, 0.35);
+    /* Shadows */
+    --shadow-soft: 0 4px 24px hsla(0, 0%, 0%, 0.08);
+    --shadow-card: 0 12px 40px hsla(0, 0%, 0%, 0.12);
+    --shadow-elevated: 0 24px 64px hsla(0, 0%, 0%, 0.16);
+    --shadow-red: 0 12px 32px hsla(0, 84%, 50%, 0.3);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -74,33 +74,33 @@
   }
 
   .dark {
-    --background: 220 50% 6%;
-    --foreground: 40 33% 98%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 98%;
 
-    --card: 220 45% 10%;
-    --card-foreground: 40 33% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 220 45% 10%;
-    --popover-foreground: 40 33% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 43 70% 47%;
-    --primary-foreground: 220 60% 10%;
+    --primary: 0 84% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 40% 20%;
-    --secondary-foreground: 40 33% 98%;
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 40% 15%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 43 70% 47%;
-    --accent-foreground: 220 60% 10%;
+    --accent: 0 84% 50%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 25 95% 53%;
+    --destructive: 0 84% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 30% 20%;
-    --input: 220 30% 20%;
-    --ring: 43 70% 47%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 84% 50%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -133,23 +133,23 @@
 
 @layer components {
   .glass-card {
-    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-card;
+    @apply bg-white/90 backdrop-blur-xl border border-white/20 shadow-card;
   }
 
   .glass-dark {
     @apply bg-primary/90 backdrop-blur-xl border border-white/10;
   }
 
-  .text-gradient-gold {
-    @apply bg-gradient-to-r from-secondary via-gold-light to-secondary bg-clip-text text-transparent;
+  .text-gradient-red {
+    @apply bg-gradient-to-r from-secondary via-red-light to-secondary bg-clip-text text-transparent;
   }
 
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-navy-light transition-all duration-300 shadow-soft hover:shadow-card;
+    @apply bg-primary text-primary-foreground hover:bg-black-light transition-all duration-300 shadow-soft hover:shadow-card;
   }
 
-  .btn-gold {
-    @apply bg-secondary text-secondary-foreground hover:bg-gold-dark transition-all duration-300 shadow-gold;
+  .btn-red {
+    @apply bg-secondary text-secondary-foreground hover:bg-red-dark transition-all duration-300 shadow-red;
   }
 
   .btn-cta {
@@ -162,6 +162,26 @@
 
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Decorative elements */
+  .red-glow {
+    box-shadow: 0 0 60px hsla(0, 84%, 50%, 0.3);
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(circle, hsl(0 84% 50% / 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .diagonal-lines {
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      hsl(0 84% 50% / 0.03) 10px,
+      hsl(0 84% 50% / 0.03) 20px
+    );
   }
 }
 
@@ -188,6 +208,10 @@
 
   .animate-shimmer {
     animation: shimmer 2s linear infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
   }
 
   @keyframes fadeUp {
@@ -225,6 +249,11 @@
   @keyframes shimmer {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
+  }
+
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px hsla(0, 84%, 50%, 0.3); }
+    50% { box-shadow: 0 0 40px hsla(0, 84%, 50%, 0.6); }
   }
 
   .delay-100 { animation-delay: 100ms; }

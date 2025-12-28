@@ -1,29 +1,74 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    lookingFor: "",
+    area: "",
+    message: ""
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    toast({
-      title: "Enquiry Sent Successfully!",
-      description: "One of our experts will get in touch with you shortly.",
-    });
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase.functions.invoke('send-enquiry', {
+        body: {
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email || undefined,
+          lookingFor: formData.lookingFor || undefined,
+          area: formData.area || undefined,
+          message: formData.message || undefined,
+          source: "contact_form"
+        }
+      });
+
+      if (error) throw error;
+
+      setIsSubmitted(true);
+      toast({
+        title: "Enquiry Sent Successfully!",
+        description: "One of our experts will get in touch with you shortly.",
+      });
+      
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", phone: "", email: "", lookingFor: "", area: "", message: "" });
+      }, 3000);
+    } catch (error) {
+      console.error("Error sending enquiry:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send enquiry. Please try again or call us directly.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <section id="contact" className="section-padding bg-muted/30">
-      <div className="container-custom">
+    <section id="contact" className="section-padding bg-muted/30 relative overflow-hidden">
+      {/* Decorative Background */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+
+      <div className="container-custom relative">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column - Info */}
           <motion.div
@@ -32,7 +77,7 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-secondary/10 rounded-full text-secondary text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-secondary/10 rounded-full text-secondary text-sm font-semibold mb-4">
               Get In Touch
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
@@ -46,9 +91,9 @@ const ContactSection = () => {
             </p>
 
             <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-secondary" />
+              <div className="flex items-start gap-4 group">
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                  <MapPin className="w-5 h-5 text-secondary group-hover:text-secondary-foreground" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Office Address</h4>
@@ -62,9 +107,9 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-secondary" />
+              <div className="flex items-start gap-4 group">
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                  <Phone className="w-5 h-5 text-secondary group-hover:text-secondary-foreground" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Phone Numbers</h4>
@@ -77,9 +122,9 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-secondary" />
+              <div className="flex items-start gap-4 group">
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                  <Mail className="w-5 h-5 text-secondary group-hover:text-secondary-foreground" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Email</h4>
@@ -89,9 +134,9 @@ const ContactSection = () => {
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5 text-secondary" />
+              <div className="flex items-start gap-4 group">
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
+                  <Clock className="w-5 h-5 text-secondary group-hover:text-secondary-foreground" />
                 </div>
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Working Hours</h4>
@@ -111,8 +156,11 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-card rounded-2xl p-8 shadow-card border border-border">
-              <h3 className="font-display text-2xl font-bold text-foreground mb-6">
+            <div className="bg-card rounded-2xl p-8 shadow-card border border-border relative overflow-hidden">
+              {/* Decorative corner */}
+              <div className="absolute top-0 right-0 w-24 h-24 bg-secondary/10 rounded-bl-full" />
+              
+              <h3 className="font-display text-2xl font-bold text-foreground mb-6 relative">
                 Send an Enquiry
               </h3>
 
@@ -134,19 +182,32 @@ const ContactSection = () => {
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-5 relative">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Your Name *
                       </label>
-                      <Input placeholder="Enter your name" required />
+                      <Input 
+                        placeholder="Enter your name" 
+                        required 
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="border-border focus:border-secondary"
+                      />
                     </div>
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Phone Number *
                       </label>
-                      <Input type="tel" placeholder="+91-XXXXX-XXXXX" required />
+                      <Input 
+                        type="tel" 
+                        placeholder="+91-XXXXX-XXXXX" 
+                        required 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="border-border focus:border-secondary"
+                      />
                     </div>
                   </div>
 
@@ -154,7 +215,13 @@ const ContactSection = () => {
                     <label className="text-sm font-medium text-foreground mb-2 block">
                       Email Address
                     </label>
-                    <Input type="email" placeholder="your@email.com" />
+                    <Input 
+                      type="email" 
+                      placeholder="your@email.com" 
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="border-border focus:border-secondary"
+                    />
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -162,8 +229,12 @@ const ContactSection = () => {
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         What are you looking for? *
                       </label>
-                      <Select required>
-                        <SelectTrigger>
+                      <Select 
+                        required
+                        value={formData.lookingFor}
+                        onValueChange={(value) => setFormData({ ...formData, lookingFor: value })}
+                      >
+                        <SelectTrigger className="border-border focus:border-secondary">
                           <SelectValue placeholder="Select" />
                         </SelectTrigger>
                         <SelectContent>
@@ -179,8 +250,11 @@ const ContactSection = () => {
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         City/Area of Interest
                       </label>
-                      <Select>
-                        <SelectTrigger>
+                      <Select
+                        value={formData.area}
+                        onValueChange={(value) => setFormData({ ...formData, area: value })}
+                      >
+                        <SelectTrigger className="border-border focus:border-secondary">
                           <SelectValue placeholder="Select Area" />
                         </SelectTrigger>
                         <SelectContent>
@@ -202,12 +276,24 @@ const ContactSection = () => {
                     <Textarea
                       placeholder="Tell us more about what you're looking for..."
                       rows={4}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="border-border focus:border-secondary"
                     />
                   </div>
 
-                  <Button type="submit" variant="gold" size="lg" className="w-full">
-                    <Send className="w-4 h-4 mr-2" />
-                    Send Enquiry
+                  <Button type="submit" variant="gold" size="lg" className="w-full" disabled={isLoading}>
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4 mr-2" />
+                        Send Enquiry
+                      </>
+                    )}
                   </Button>
                 </form>
               )}
