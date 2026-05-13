@@ -74,6 +74,12 @@ export default {
         },
         charcoal: "hsl(var(--charcoal))",
         cream: "hsl(var(--cream))",
+        ivory: "hsl(var(--ivory))",
+        gold: {
+          DEFAULT: "hsl(var(--gold))",
+          light: "hsl(var(--gold-light))",
+          dark: "hsl(var(--gold-dark))",
+        },
         cta: "hsl(var(--warm-red))",
       },
       borderRadius: {
