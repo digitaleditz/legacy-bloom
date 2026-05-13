@@ -28,26 +28,29 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="section-padding bg-muted/30">
-      <div className="container-custom">
+    <section id="services" className="section-padding bg-primary text-primary-foreground relative overflow-hidden grain">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60rem] h-[60rem] bg-secondary/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+      <div className="container-custom relative">
         {/* Section Header */}
         <motion.div
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 bg-secondary/10 rounded-full text-secondary text-sm font-medium mb-4">
+          <span className="divider-ornament text-xs uppercase tracking-[0.4em] font-semibold text-secondary mb-6">
             What We Offer
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Comprehensive{" "}
-            <span className="text-secondary">Real Estate Solutions</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 mb-6 leading-[1.05]">
+            End-to-end{" "}
+            <span className="italic text-gradient-gold">real estate</span> advisory
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Whether you're looking to buy, sell, rent, or invest — we provide end-to-end 
-            support with the same values our founders established decades ago.
+          <p className="text-lg text-primary-foreground/70 leading-relaxed">
+            Whether you're acquiring, divesting, leasing or investing — every
+            engagement is handled with the discretion and care our family has
+            been known for since the 1970s.
           </p>
         </motion.div>
 
