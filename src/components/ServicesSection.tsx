@@ -111,7 +111,7 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <p className="text-lg text-muted-foreground mb-6">
+          <p className="text-lg text-primary-foreground/70 mb-6">
             Not sure which service is right for you? Let's discuss your needs.
           </p>
           <Button variant="gold" size="xl" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
