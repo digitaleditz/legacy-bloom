@@ -96,15 +96,13 @@ const LegacySection = () => {
                   <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-gold via-gold-light to-gold-dark opacity-90 shadow-gold" />
                   {/* Inner mat */}
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-cream to-ivory p-2 shadow-inner">
-                    <div className="relative w-full h-full rounded-lg overflow-hidden bg-muted">
+                    <div className="relative w-full h-full rounded-lg overflow-hidden bg-gradient-to-br from-muted to-ivory">
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                        className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
                       />
-                      {/* Vintage vignette */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent" />
-                      <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg" />
+                      <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg pointer-events-none" />
                     </div>
                   </div>
                   {/* Brass nameplate accent */}
