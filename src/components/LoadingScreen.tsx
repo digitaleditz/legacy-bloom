@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import logoImage from "@/assets/kapahi-logo-official.png";
+import { Building2 } from "lucide-react";
 
 const LoadingScreen = () => {
   const [show, setShow] = useState(true);
@@ -42,11 +42,14 @@ const LoadingScreen = () => {
               className="relative"
             >
               <div className="absolute -inset-8 rounded-full bg-secondary/20 blur-3xl animate-pulse" />
-              <img
-                src={logoImage}
-                alt="Kapahi Properties"
-                className="relative h-32 w-auto object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)]"
-              />
+              <motion.div
+                className="relative w-28 h-28 rounded-2xl bg-gradient-to-br from-secondary to-red-dark border border-gold/30 flex items-center justify-center shadow-red"
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Building2 className="w-14 h-14 text-primary-foreground" strokeWidth={1.4} />
+                <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-gold/60 blur-sm" />
+              </motion.div>
             </motion.div>
 
             <motion.div
