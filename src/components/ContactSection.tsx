@@ -77,12 +77,12 @@ const ContactSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block px-4 py-2 bg-secondary/10 rounded-full text-secondary text-sm font-semibold mb-4">
+            <span className="divider-ornament text-xs uppercase tracking-[0.4em] font-semibold mb-6">
               Get In Touch
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Let's Discuss Your{" "}
-              <span className="text-secondary">Property Goals</span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mt-4 mb-6 leading-[1.05]">
+              Let's discuss your{" "}
+              <span className="italic text-gradient-red">property goals</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Tell us what you're looking for, and we'll handle the rest. Your satisfaction 
