@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
+import logoImage from "@/assets/kapahi-logo-official.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
