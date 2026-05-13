@@ -37,19 +37,17 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-secondary rounded-lg flex items-center justify-center">
-                <span className="font-display text-xl font-bold text-secondary-foreground">KP</span>
-              </div>
+              <img src={logoImage} alt="Kapahi Properties" className="h-14 w-auto object-contain" />
               <div>
-                <h3 className="font-display text-xl font-bold">Kapahi Properties</h3>
-                <p className="text-sm text-primary-foreground/60">Since 1970s</p>
+                <h3 className="font-display text-xl font-semibold">Kapahi Properties</h3>
+                <p className="text-xs uppercase tracking-[0.25em] text-secondary mt-0.5">Since 1970s</p>
               </div>
             </div>
-            <p className="text-primary-foreground/70 mb-6 leading-relaxed">
-              Real Estate Consultants & Developers serving Jammu & Kashmir with honesty 
-              and integrity for 3 generations.
+            <p className="text-primary-foreground/65 mb-6 leading-relaxed text-sm">
+              Real Estate Consultants &amp; Developers serving Jammu &amp; Kashmir
+              with honesty and integrity for three generations.
             </p>
-            <p className="text-secondary font-display text-lg italic">
+            <p className="font-serif text-lg italic text-gradient-gold">
               "Honoring the Past, Building the Future"
             </p>
           </motion.div>
