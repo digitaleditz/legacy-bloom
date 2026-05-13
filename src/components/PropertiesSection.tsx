@@ -16,48 +16,48 @@ const propertyTypes = [
     title: "Apartments & Flats",
     tagline: "Modern urban living",
     description:
-      "Curated 2, 3 & 4 BHK apartments in the most sought-after addresses across Jammu & Srinagar.",
-    highlights: ["1 BHK – 4 BHK", "Premium amenities", "Prime locations"],
+      "Curated apartments in the most sought-after addresses across Jammu & Srinagar — from compact city homes to expansive penthouses.",
+    highlights: ["All configurations", "Premium amenities", "Prime locations"],
   },
   {
     icon: Home,
     title: "Independent Houses & Villas",
     tagline: "Spacious family homes",
     description:
-      "Standalone homes and luxury villas with private gardens, parking and architectural character.",
-    highlights: ["3 BHK – 6 BHK", "Garden & parking", "Gated communities"],
+      "Standalone homes and luxury villas with private gardens, parking and architectural character — tailored to your family.",
+    highlights: ["Custom-sized homes", "Garden & parking", "Gated communities"],
   },
   {
     icon: LandPlot,
     title: "Residential Plots",
     tagline: "Build your dream",
     description:
-      "Clear-title residential plots in upcoming and established localities with full documentation support.",
-    highlights: ["5 – 25 Marla", "Verified titles", "DDA / approved layouts"],
+      "Clear-title residential plots in upcoming and established localities, with full documentation and advisory support.",
+    highlights: ["Verified titles", "Approved layouts", "Flexible sizes"],
   },
   {
     icon: Briefcase,
     title: "Commercial Office Spaces",
     tagline: "Premium workspaces",
     description:
-      "Grade-A office spaces and corporate suites in central business districts, ready for fit-out.",
-    highlights: ["500 – 10,000 sq.ft", "CBD addresses", "Lease & sale options"],
+      "Grade-A office spaces and corporate suites in central business districts — ready for fit-out and scalable to your team.",
+    highlights: ["CBD addresses", "Lease & sale options", "Any size requirement"],
   },
   {
     icon: Store,
     title: "Retail & Shops",
     tagline: "High-footfall locations",
     description:
-      "Showrooms, retail shops and high-street commercial spaces in Jammu & Kashmir's busiest markets.",
-    highlights: ["Ground floor units", "Main road frontage", "Anchor locations"],
+      "Showrooms, retail shops and high-street commercial spaces in J&K's busiest markets and emerging hubs.",
+    highlights: ["Main road frontage", "Anchor locations", "Footfall-driven"],
   },
   {
     icon: Trees,
     title: "Farmhouses & Land",
     tagline: "Heritage retreats",
     description:
-      "Farmhouses, orchards and agricultural land — perfect for getaways or long-term investment.",
-    highlights: ["1 – 50 kanal", "Orchard land", "Scenic locations"],
+      "Farmhouses, orchards and agricultural land — perfect for getaways, lifestyle ownership or long-term investment.",
+    highlights: ["Orchard land", "Scenic locations", "Investment-grade"],
   },
 ];
 
