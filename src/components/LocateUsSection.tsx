@@ -16,11 +16,11 @@ const LocateUsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 bg-secondary/10 rounded-full text-secondary text-sm font-medium mb-4">
+          <span className="divider-ornament text-xs uppercase tracking-[0.4em] font-semibold mb-6">
             Find Us
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Locate <span className="text-secondary">Kapahi Properties</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mt-4 mb-6 leading-[1.05]">
+            Locate <span className="italic text-gradient-red">Kapahi Properties</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             Wherever you are in the world, your next home in Jammu & Kashmir is
@@ -69,7 +69,7 @@ const LocateUsSection = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-secondary/20 via-transparent to-secondary/10 animate-pulse" />
 
               {/* Globe container */}
-              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-primary via-navy-light to-primary shadow-elevated overflow-hidden">
+              <div className="absolute inset-8 rounded-full bg-gradient-to-br from-primary via-charcoal to-primary shadow-elevated overflow-hidden">
                 {/* Globe surface pattern */}
                 <div className="absolute inset-0 opacity-30">
                   {[...Array(8)].map((_, i) => (

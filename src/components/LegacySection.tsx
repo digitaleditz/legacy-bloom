@@ -46,16 +46,16 @@ const LegacySection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-block px-4 py-2 bg-secondary/10 rounded-full text-secondary text-sm font-medium mb-4">
+          <span className="divider-ornament text-xs uppercase tracking-[0.4em] font-semibold mb-6">
             Our Story
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold text-foreground mt-4 mb-6 leading-[1.05]">
             Honoring the Past,{" "}
-            <span className="text-secondary">Building the Future</span>
+            <span className="italic text-gradient-red">Building the Future</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Three generations of dedication, trust, and excellence in serving the 
-            real estate needs of Jammu & Kashmir.
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Three generations of dedication, trust, and excellence in serving the
+            real estate needs of Jammu &amp; Kashmir.
           </p>
         </motion.div>
 
